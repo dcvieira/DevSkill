@@ -1,0 +1,41 @@
+﻿@page "/catalog"
+
+<h3>Courses</h3>
+
+
+
+
+
+@if (Courses == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Course Name</th>
+                <th>Course Duration</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cs in Courses)
+            {
+                <tr>
+                    <td><img src="@(cs.ImageUrl)" class="event-image" /></td>
+                    <td class="event-name">@cs.Name </td>
+                    <td class="event-date">@(cs.Duration)hs </td>
+                    <td>
+                        <a href="@($"addorder/{cs.Id}")" class="event-purchase-button btn">
+                            <i class="fa-solid fa-add"></i> Purchase
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

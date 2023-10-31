@@ -1,0 +1,103 @@
+﻿@page "/addorder/{courseid}"
+
+<h3 class="mb-5">New Order @Course?.Name</h3>
+
+
+@Message
+
+@if (Course != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Course name</th>
+                <th>Course Duration</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><img src="@(Course.ImageUrl)" class="event-image" /></td>
+                <td class="event-name">@Course.Name </td>
+                <td class="event-date">@(Course.Duration)hs </td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+
+
+@if (CourseOrder == null)
+{
+
+    @if (Submitted)
+    {
+        <h2 >Order Submitted</h2>
+        <a href="@($"orderoverview")">Go to my orders</a>
+    }
+    else
+    {
+        <EditForm Model="@CreateOrderViewModel" OnValidSubmit="@HandleValidSubmit">
+
+            <DataAnnotationsValidator />
+            <ValidationSummary></ValidationSummary>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Country:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.Country" placeholder="Enter country name"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.Country)" />
+                </div>
+            </div>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Postal Code:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.PostalCode" placeholder="Enter postal code"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.PostalCode)" />
+                </div>
+            </div>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Credit card number:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.CreditCardNumber" placeholder="Enter credit card number"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.CreditCardNumber)" />
+                </div>
+            </div>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Name on card:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.NameOnCard" placeholder="Enter name on card"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.NameOnCard)" />
+                </div>
+            </div>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Expiration date:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.ExpirationDate" placeholder="Enter expiration date"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.ExpirationDate)" />
+                </div>
+            </div>
+
+            <div class="row mb-3 ms-2">
+                <label for="name" class="col-sm-3 form-label">Secuity code:</label>
+                <div class="col-sm-5">
+                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.SecuityCode" placeholder="Enter secuity code"></InputText>
+                    <ValidationMessage For="@(() => CreateOrderViewModel.SecuityCode)" />
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button mt-3">Complete Order</button>
+        </EditForm>
+    }
+}
+else
+{
+    <h3> You already purchase this course</h3>
+    <button type="button" class="submit-button mt-3">Watch Now!</button>
+}

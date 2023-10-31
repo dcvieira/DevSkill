@@ -1,0 +1,35 @@
+﻿@page "/orderoverview"
+
+<h3>Order Overview</h3>
+
+
+
+
+@if (Orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Course name</th>
+                <th>Order date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Orders)
+            {
+                <tr>
+                    <td class="event-name">@order.CourseName </td>
+                    <td class="event-date">@order.OrderDate </td>
+                    <td class="event-name">$@(order.Price) </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
