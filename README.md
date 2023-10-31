@@ -43,6 +43,9 @@ cd DevSkill.App
 dotnet run
 ```
 
+## Estrutura do Projeto
+![Project Structure](project-structure.JPG)
+
 ## Tecnologias e Bibliotecas
 
 - Blazor
