@@ -22,7 +22,7 @@ Os usuários têm a capacidade de navegar pelo catálogo de cursos, selecionar u
 
 5. **Login**: Após o registro, o usuário pode fazer login em sua conta para acessar recursos adicionais e concluir a ordem de compra.
 
-
+![Project Structure](capture.gif)
 
 ## Pré-requisitos
 
