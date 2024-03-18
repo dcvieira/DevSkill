@@ -26,14 +26,6 @@ public class OrderController : ControllerBase
         var dtos = await _mediator.Send(new GetOrdersListQuery());
         return Ok(dtos);
     }
-
-    [Authorize]
-    [HttpPost(Name = "CreateOrder")]
-    public async Task<ActionResult<CreateOrderCommandResponse>> Create([FromBody] CreateOrderCommand createOrderCommand)
-    {
-        var response = await _mediator.Send(createOrderCommand);
-        return Ok(response);
-    }
 }
 
 

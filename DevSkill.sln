@@ -35,13 +35,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{C4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3E21F820-9DEE-45BC-954D-B651EA252595}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSkill.Order.API", "src\Services\Order\DevSkill.Order.API\DevSkill.Order.API.csproj", "{5B31E1D9-B10B-4F8C-A802-9D1DE04BB676}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSkill.Order.API", "src\Services\Order\DevSkill.Order.API\DevSkill.Order.API.csproj", "{5B31E1D9-B10B-4F8C-A802-9D1DE04BB676}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C00B6BE3-F554-469F-BECB-4DB603FA243B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSkill.Order.Application", "src\Services\Order\DevSkill.Order.Application\DevSkill.Order.Application.csproj", "{3273F17B-5A3D-4FCE-8416-677461E0F944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSkill.Order.Application", "src\Services\Order\DevSkill.Order.Application\DevSkill.Order.Application.csproj", "{3273F17B-5A3D-4FCE-8416-677461E0F944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSkill.Order.Domain", "src\Services\Order\DevSkill.Order.Domain\DevSkill.Order.Domain.csproj", "{F5333877-FC5B-491F-A378-DD3B9A45A01A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSkill.Order.Domain", "src\Services\Order\DevSkill.Order.Domain\DevSkill.Order.Domain.csproj", "{F5333877-FC5B-491F-A378-DD3B9A45A01A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FB82D196-9F34-4FC9-9F8B-56A7A7DEBCB2}"
 EndProject
