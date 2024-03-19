@@ -1,4 +1,7 @@
 ﻿using DevSkill.Integration.Messages;
+using DevSkill.Order.Application.Features.Order.Commands.CreateOrder;
+using DevSkill.Order.Application.Messages;
+using MediatR;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Azure.ServiceBus.Core;
 using Newtonsoft.Json;
@@ -13,18 +16,18 @@ public class AzServiceBusConsumer : IAzServiceBusConsumer
 
     private readonly IConfiguration _configuration;
 
-    private readonly OrderRepository _orderRepository;
+    private readonly IMediator _mediator;
     private readonly IMessageBus _messageBus;
 
     private readonly string checkoutMessageTopic;
     private readonly string orderPaymentRequestMessageTopic;
     private readonly string orderPaymentUpdatedMessageTopic;
 
-    public AzServiceBusConsumer(IConfiguration configuration, IMessageBus messageBus, OrderRepository orderRepository)
+    public AzServiceBusConsumer(IConfiguration configuration, IMessageBus messageBus, IMediator mediator)
     {
         _configuration = configuration;
-        _orderRepository = orderRepository;
-        // _logger = logger;
+
+        _mediator = mediator;
         _messageBus = messageBus;
 
         var serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString");
@@ -41,7 +44,7 @@ public class AzServiceBusConsumer : IAzServiceBusConsumer
         var messageHandlerOptions = new MessageHandlerOptions(OnServiceBusException) { MaxConcurrentCalls = 4 };
 
         checkoutMessageReceiverClient.RegisterMessageHandler(OnCheckoutMessageReceived, messageHandlerOptions);
-        orderPaymentUpdateMessageReceiverClient.RegisterMessageHandler(OnOrderPaymentUpdateReceived, messageHandlerOptions);
+        //orderPaymentUpdateMessageReceiverClient.RegisterMessageHandler(OnOrderPaymentUpdateReceived, messageHandlerOptions);
     }
 
     private async Task OnCheckoutMessageReceived(Message message, CancellationToken arg2)
@@ -49,50 +52,35 @@ public class AzServiceBusConsumer : IAzServiceBusConsumer
         var body = Encoding.UTF8.GetString(message.Body);//json from service bus
 
         //save order with status not paid
-        BasketCheckoutMessage basketCheckoutMessage = JsonConvert.DeserializeObject<BasketCheckoutMessage>(body);
+        CheckoutRequestMessage checkoutMessage = JsonConvert.DeserializeObject<CheckoutRequestMessage>(body);
 
-        Guid orderId = Guid.NewGuid();
 
-        Order order = new Order
+        var command = new CreateOrderCommand
         {
-            UserId = basketCheckoutMessage.UserId,
-            Id = orderId,
-            OrderPaid = false,
-            OrderPlaced = DateTime.Now,
-            OrderTotal = basketCheckoutMessage.BasketTotal
+            UserId = checkoutMessage.UserId,
+            CoursePrice = checkoutMessage.CoursePrice,
+            CourseId = checkoutMessage.CourseId,
+            CourseName = checkoutMessage.CourseName,
+            Country = checkoutMessage.Country,
+            PostalCode = checkoutMessage.PostalCode,
+            NameOnCard = checkoutMessage.NameOnCard,
+            CreditCardNumber = checkoutMessage.CreditCardNumber,
+            SecuityCode = checkoutMessage.SecuityCode,
+            ExpirationDate = checkoutMessage.ExpirationDate
         };
+        
+        await _mediator.Send(command);
 
-        await _orderRepository.AddOrder(order);
-
-        //send order payment request message
-        OrderPaymentRequestMessage orderPaymentRequestMessage = new OrderPaymentRequestMessage
-        {
-            CardExpiration = basketCheckoutMessage.CardExpiration,
-            CardName = basketCheckoutMessage.CardName,
-            CardNumber = basketCheckoutMessage.CardNumber,
-            OrderId = orderId,
-            Total = basketCheckoutMessage.BasketTotal
-        };
-
-        try
-        {
-            await _messageBus.PublishMessage(orderPaymentRequestMessage, orderPaymentRequestMessageTopic);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
     }
 
-    private async Task OnOrderPaymentUpdateReceived(Message message, CancellationToken arg2)
-    {
-        var body = Encoding.UTF8.GetString(message.Body);//json from service bus
-        OrderPaymentUpdateMessage orderPaymentUpdateMessage =
-            JsonConvert.DeserializeObject<OrderPaymentUpdateMessage>(body);
+    //private async Task OnOrderPaymentUpdateReceived(Message message, CancellationToken arg2)
+    //{
+    //    var body = Encoding.UTF8.GetString(message.Body);//json from service bus
+    //    OrderPaymentUpdateMessage orderPaymentUpdateMessage =
+    //        JsonConvert.DeserializeObject<OrderPaymentUpdateMessage>(body);
 
-        await _orderRepository.UpdateOrderPaymentStatus(orderPaymentUpdateMessage.OrderId, orderPaymentUpdateMessage.PaymentSuccess);
-    }
+    //    await _orderRepository.UpdateOrderPaymentStatus(orderPaymentUpdateMessage.OrderId, orderPaymentUpdateMessage.PaymentSuccess);
+    //}
 
     private Task OnServiceBusException(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
     {

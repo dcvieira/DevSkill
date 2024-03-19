@@ -1,5 +1,4 @@
 ﻿using DevSkill.Catalog.Application.Contracts.Persistence;
-using DevSkill.Catalog.Application.Contracts.Persistence;
 using DevSkill.Catalog.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +17,6 @@ namespace DevSkill.Catalog.Persistence
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
 
             return services;    
         }

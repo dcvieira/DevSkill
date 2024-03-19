@@ -1,7 +1,6 @@
 ﻿using DevSkill.Catalog.Application.Contracts;
 using DevSkill.Catalog.Domain.Catalog.Entities;
 using DevSkill.Catalog.Domain.Common;
-using DevSkill.Catalog.Domain.Order.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DevSkill.Catalog.Persistence;
@@ -18,7 +17,6 @@ public class DevSkillDbContext : DbContext
 
     public DbSet<Course> Courses { get; set; }
     public DbSet<Category> Categories { get; set; }
-    public DbSet<Order> Orders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

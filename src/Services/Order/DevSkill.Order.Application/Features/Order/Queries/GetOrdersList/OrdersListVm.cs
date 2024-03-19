@@ -1,4 +1,4 @@
-﻿using DevSkill.Catalog.Domain.Order.Enums;
+﻿using DevSkill.Order.Domain.Enums;
 
 namespace DevSkill.Catalog.Application.Features.Order.Queries.GetOrdersList
 {

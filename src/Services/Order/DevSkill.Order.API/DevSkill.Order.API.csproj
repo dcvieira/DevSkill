@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Integration\DevSkill.Integration.Messages\DevSkill.Integration.Messages.csproj" />
     <ProjectReference Include="..\DevSkill.Order.Application\DevSkill.Order.Application.csproj" />
+    <ProjectReference Include="..\DevSkill.Order.Persistence\DevSkill.Order.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

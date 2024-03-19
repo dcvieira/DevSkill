@@ -1,6 +1,8 @@
-﻿using DevSkill.Catalog.Application.Responses;
+﻿
 
-namespace DevSkill.Catalog.Application.Features.Order.Commands.CreateOrder
+using DevSkill.Order.Application.Responses;
+
+namespace DevSkill.Order.Application.Features.Order.Commands.CreateOrder
 {
     public class CreateOrderCommandResponse : BaseResponse
     {

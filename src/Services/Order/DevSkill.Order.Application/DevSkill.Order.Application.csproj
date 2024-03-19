@@ -15,11 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Integration\DevSkill.Integration.Messages\DevSkill.Integration.Messages.csproj" />
     <ProjectReference Include="..\DevSkill.Order.Domain\DevSkill.Order.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Order\Commands\" />
   </ItemGroup>
 
 </Project>
