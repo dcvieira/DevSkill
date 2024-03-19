@@ -4,6 +4,7 @@ using DevSkill.Catalog.Application.Contracts.Persistence;
 using DevSkill.Catalog.Application.Exceptions;
 using DevSkill.Catalog.Domain.Order.ValueObjects;
 using MediatR;
+using DevSkill.Integration.Messages;
 
 namespace DevSkill.Catalog.Application.Features.Order.Commands.CreateOrder
 {
@@ -13,13 +14,15 @@ namespace DevSkill.Catalog.Application.Features.Order.Commands.CreateOrder
         private readonly ICourseRepository _courseRepository;
         private readonly IMapper _mapper;
         private readonly ILoggedInUserService _loggedInUserService;
+        private readonly IMessageBus _messageBus;
 
-        public CreateOrderCommandHandler(IOrderRepository orderRepository, ICourseRepository courseRepository, IMapper mapper, ILoggedInUserService loggedInUserService)
+        public CreateOrderCommandHandler(IOrderRepository orderRepository, ICourseRepository courseRepository, IMessageBus messageBus, IMapper mapper, ILoggedInUserService loggedInUserService)
         {
             _orderRepository = orderRepository;
             _courseRepository = courseRepository;
             _mapper = mapper;
             _loggedInUserService = loggedInUserService;
+            _messageBus = messageBus;
         }
 
         public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -32,6 +35,17 @@ namespace DevSkill.Catalog.Application.Features.Order.Commands.CreateOrder
             {
                 throw new NotFoundException("Course Not Found", request.CourseId);
             }
+
+            //try
+            //{
+            //    await _messageBus.PublishMessage(null, "checkoutmessage");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e);
+            //    throw;
+            //}
+
 
             var Order = new Domain.Order.Entities.Order()
             {

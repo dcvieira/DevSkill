@@ -1,6 +1,4 @@
-﻿
-
-namespace DevSkill.Order.Application.Responses;
+﻿namespace DevSkill.Order.Application.Responses;
 public class BaseResponse
 {
     public BaseResponse()

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using DevSkill.Integration.Messages;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DevSkill.Catalog.Application;
@@ -8,8 +9,9 @@ namespace DevSkill.Catalog.Application;
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddSingleton<IMessageBus, AzServiceBusMessageBus>();
 
-            return services;
+        return services;
         }
     }
 

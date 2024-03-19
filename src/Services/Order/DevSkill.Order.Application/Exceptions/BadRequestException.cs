@@ -1,4 +1,4 @@
-﻿namespace DevSkill.Catalog.Application.Exceptions;
+﻿namespace DevSkill.Order.Application.Exceptions;
     public class BadRequestException: Exception
     {
         public BadRequestException(string message): base(message)

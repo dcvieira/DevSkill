@@ -29,7 +29,6 @@ namespace DevSkill.Order.Application.Features.Order.Queries.GetOrderByCourse
             {
                 throw new NotFoundException(nameof(Order), request.CourseId);
             }
-            //return _mapper.Map<OrderVm>(order);
             return new OrderVm
             {
                 Id = order.Id,

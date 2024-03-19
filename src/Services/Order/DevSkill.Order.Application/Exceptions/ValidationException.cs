@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace DevSkill.Catalog.Application.Exceptions;
+namespace DevSkill.Order.Application.Exceptions;
 public class ValidationException : Exception
 {
     public List<string> ValdationErrors { get; set; }
