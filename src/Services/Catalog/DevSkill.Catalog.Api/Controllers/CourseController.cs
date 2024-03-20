@@ -1,6 +1,5 @@
 ﻿using DevSkill.Catalog.Application.Features.Course.GetCourse;
 using DevSkill.Catalog.Application.Features.Course.GetCoursesList;
-using DevSkill.Catalog.Application.Features.Order.Queries.GetOrderByCourse;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -37,14 +36,14 @@ public class CourseController : ControllerBase
         return Ok(course);
     }
 
-    [Authorize]
-    [HttpGet("/{courseId}/order", Name = "GetCourseOrder")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<OrderVm>> GetCourseOrder(Guid courseId)
-    {
-        OrderVm dtos = await _mediator.Send(new GetOrderByCourseQuery {  CourseId = courseId});  
-        return Ok(dtos);
-    }
+    //[Authorize]
+    //[HttpGet("/{courseId}/order", Name = "GetCourseOrder")]
+    //[ProducesResponseType(StatusCodes.Status200OK)]
+    //public async Task<ActionResult<OrderVm>> GetCourseOrder(Guid courseId)
+    //{
+    //    OrderVm dtos = await _mediator.Send(new GetOrderByCourseQuery {  CourseId = courseId});  
+    //    return Ok(dtos);
+    //}
 }
 
 
