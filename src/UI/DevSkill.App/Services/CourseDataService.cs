@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
 using DevSkill.App.Contracts;
-using DevSkill.App.Services.Base;
+using DevSkill.App.Services.Base.Catalog;
 using DevSkill.App.ViewModels;
 
 namespace DevSkill.App.Services
 {
-    public class CourseDataService : BaseDataService, ICourseDataService
+    public class CourseDataService : BaseCatalogDataService, ICourseDataService
     {
         private readonly IMapper _mapper;
 
-        public CourseDataService(IClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
+        public CourseDataService(ICatalogClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
         {
             _mapper = mapper;
         }

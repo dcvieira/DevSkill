@@ -39,7 +39,7 @@
     }
     else
     {
-        <EditForm Model="@CreateOrderViewModel" OnValidSubmit="@HandleValidSubmit">
+        <EditForm Model="@CheckoutViewModel" OnValidSubmit="@HandleValidSubmit">
 
             <DataAnnotationsValidator />
             <ValidationSummary></ValidationSummary>
@@ -47,48 +47,48 @@
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Country:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.Country" placeholder="Enter country name"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.Country)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.Country" placeholder="Enter country name"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.Country)" />
                 </div>
             </div>
 
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Postal Code:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.PostalCode" placeholder="Enter postal code"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.PostalCode)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.PostalCode" placeholder="Enter postal code"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.PostalCode)" />
                 </div>
             </div>
 
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Credit card number:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.CreditCardNumber" placeholder="Enter credit card number"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.CreditCardNumber)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.CreditCardNumber" placeholder="Enter credit card number"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.CreditCardNumber)" />
                 </div>
             </div>
 
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Name on card:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.NameOnCard" placeholder="Enter name on card"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.NameOnCard)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.NameOnCard" placeholder="Enter name on card"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.NameOnCard)" />
                 </div>
             </div>
 
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Expiration date:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.ExpirationDate" placeholder="Enter expiration date"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.ExpirationDate)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.ExpirationDate" placeholder="Enter expiration date"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.ExpirationDate)" />
                 </div>
             </div>
 
             <div class="row mb-3 ms-2">
                 <label for="name" class="col-sm-3 form-label">Secuity code:</label>
                 <div class="col-sm-5">
-                    <InputText id="name" class="form-control" @bind-Value="@CreateOrderViewModel.SecuityCode" placeholder="Enter secuity code"></InputText>
-                    <ValidationMessage For="@(() => CreateOrderViewModel.SecuityCode)" />
+                    <InputText id="name" class="form-control" @bind-Value="@CheckoutViewModel.SecuityCode" placeholder="Enter secuity code"></InputText>
+                    <ValidationMessage For="@(() => CheckoutViewModel.SecuityCode)" />
                 </div>
             </div>
 

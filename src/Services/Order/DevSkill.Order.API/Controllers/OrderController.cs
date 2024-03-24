@@ -1,5 +1,6 @@
 ﻿
 using DevSkill.Catalog.Application.Features.Order.Queries.GetOrdersList;
+using DevSkill.Order.Application.Features.Order.Queries.GetOrderByCourse;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,15 @@ public class OrderController : ControllerBase
     public async Task<ActionResult<List<OrdersListVm>>> GetAllUserOrders()
     {
         var dtos = await _mediator.Send(new GetOrdersListQuery());
+        return Ok(dtos);
+    }
+
+    [Authorize]
+    [HttpGet("/{courseId}", Name = "GetCourseOrder")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<OrderVm>> GetCourseOrder(Guid courseId)
+    {
+        OrderVm dtos = await _mediator.Send(new GetOrderByCourseQuery { CourseId = courseId });
         return Ok(dtos);
     }
 }

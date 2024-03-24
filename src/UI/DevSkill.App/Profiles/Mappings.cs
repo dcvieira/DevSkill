@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DevSkill.App.ViewModels;
 using DevSkill.App.Services.Base;
-
+using DevSkill.App.Services.Base.Catalog;
 
 namespace DevSkill.App.Profiles;
 public class Mappings : Profile
@@ -13,7 +13,7 @@ public class Mappings : Profile
         CreateMap<CategoryListVm, CategoryViewModel>().ReverseMap();
         CreateMap<CreateCategoryCommand, CategoryViewModel>().ReverseMap();
 
-        CreateMap<CreateOrderCommand, CreateOrderViewModel>().ReverseMap();
+        CreateMap<CheckoutCommand, CheckoutViewModel>().ReverseMap();
 
         CreateMap<CourseListVm, CourseViewModel>().ReverseMap();
 

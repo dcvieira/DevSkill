@@ -1,15 +1,15 @@
 ﻿using Blazored.LocalStorage;
 using System.Net.Http.Headers;
 
-namespace DevSkill.App.Services.Base;
+namespace DevSkill.App.Services.Base.Order;
 
-public class BaseDataService
+public class BaseOrderDataService
 {
     protected readonly ILocalStorageService _localStorage;
 
-    protected IClient _client;
+    protected IOrderClient _client;
 
-    public BaseDataService(IClient client, ILocalStorageService localStorage)
+    public BaseOrderDataService(IOrderClient client, ILocalStorageService localStorage)
     {
         _client = client;
         _localStorage = localStorage;

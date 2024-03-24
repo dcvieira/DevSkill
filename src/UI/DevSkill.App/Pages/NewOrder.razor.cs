@@ -1,5 +1,7 @@
 ﻿using DevSkill.App.Contracts;
 using DevSkill.App.Services.Base;
+using DevSkill.App.Services.Base.Catalog;
+using DevSkill.App.Services.Base.Order;
 using DevSkill.App.ViewModels;
 using Microsoft.AspNetCore.Components;
 
@@ -14,9 +16,12 @@ namespace DevSkill.App.Pages
         public ICourseDataService CourseDataService { get; set; }
 
         [Inject]
+        public ICheckoutDataService CheckoutDataService { get; set; }
+
+        [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public CreateOrderViewModel CreateOrderViewModel { get; set; }
+        public CheckoutViewModel CheckoutViewModel { get; set; }
         public OrderVm? CourseOrder { get; set; }
 
         public CourseVm? Course { get; set; }
@@ -29,16 +34,16 @@ namespace DevSkill.App.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            CreateOrderViewModel = new CreateOrderViewModel();
-            CreateOrderViewModel.CourseId = Guid.Parse(CourseId);
-            Course = await CourseDataService.GetCourse(CreateOrderViewModel.CourseId);
+            CheckoutViewModel = new CheckoutViewModel();
+            CheckoutViewModel.CourseId = Guid.Parse(CourseId);
+            Course = await CourseDataService.GetCourse(CheckoutViewModel.CourseId);
 
-            CourseOrder = await OrderDataService.GetCourseOrderAsync(CreateOrderViewModel.CourseId);
+            CourseOrder = await OrderDataService.GetCourseOrderAsync(CheckoutViewModel.CourseId);
         }
 
         protected async Task HandleValidSubmit()
         {
-            var response = await OrderDataService.CreateOrder(CreateOrderViewModel);
+            var response = await CheckoutDataService.Checkout(CheckoutViewModel);
             HandleResponse(response);
         }
 

@@ -1,17 +1,17 @@
 ﻿using Blazored.LocalStorage;
 using DevSkill.App.Auth;
 using DevSkill.App.Contracts;
-using DevSkill.App.Services.Base;
+using DevSkill.App.Services.Base.Catalog;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Net.Http.Headers;
 
 namespace DevSkill.App.Services;
 
-public class AuthenticationService : BaseDataService, IAuthenticationService
+public class AuthenticationService : BaseCatalogDataService, IAuthenticationService
 {
     private readonly AuthenticationStateProvider _authenticationStateProvider;
 
-    public AuthenticationService(IClient client, ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage)
+    public AuthenticationService(ICatalogClient client, ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage)
     {
         _authenticationStateProvider = authenticationStateProvider;
     }

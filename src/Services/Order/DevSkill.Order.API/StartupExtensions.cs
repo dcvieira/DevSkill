@@ -5,6 +5,8 @@ using DevSkill.Catalog.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using DevSkill.Order.Persistence;
+using DevSkill.Order.Application.Contracts;
+using DevSkill.Order.Api.Services;
 //using Serilog;
 
 namespace DevSkill.Api;
@@ -18,7 +20,7 @@ public static class StartupExtensions
 
         builder.Services.AddApplicationServices();
         builder.Services.AddPersistenceServices(builder.Configuration);
-
+        builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
 
         builder.Services.AddHttpContextAccessor();
 

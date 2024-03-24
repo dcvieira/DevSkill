@@ -1,6 +1,6 @@
-﻿namespace DevSkill.App.Services.Base;
+﻿namespace DevSkill.App.Services.Base.Catalog;
 
-public partial class Client : IClient
+public partial class CatalogClient : ICatalogClient
     {
         public HttpClient HttpClient
         {
