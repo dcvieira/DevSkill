@@ -7,7 +7,7 @@ namespace DevSkill.Integration.Messages;
 public class AzServiceBusMessageBus : IMessageBus
 {
     private string connectionString =
-           "Endpoint=sb://<your-namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your_key>";
+           "";
 
     public async Task PublishMessage(IntegrationBaseMessage message, string topicName)
     {

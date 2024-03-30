@@ -13,10 +13,9 @@ namespace DevSkill.Order.Application.Features.Order.Commands.CreateOrder
         private readonly IOrderRepository _orderRepository;
         private readonly IMessageBus _messageBus;
 
-        public CreateOrderCommandHandler(IOrderRepository orderRepository, IMessageBus messageBus)
+        public CreateOrderCommandHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
-            _messageBus = messageBus;
         }
 
         public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)

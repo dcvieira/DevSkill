@@ -10,7 +10,7 @@ using System.Text;
 namespace DevSkill.Order.API.Messaging;
 public class AzServiceBusConsumer : IAzServiceBusConsumer
 {
-    private readonly string subscriptionName = "globoticketorder";
+    private readonly string subscriptionName = "devskillorder";
     private readonly IReceiverClient checkoutMessageReceiverClient;
     private readonly IReceiverClient orderPaymentUpdateMessageReceiverClient;
 

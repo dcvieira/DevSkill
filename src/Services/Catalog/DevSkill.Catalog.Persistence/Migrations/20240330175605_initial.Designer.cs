@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevSkill.Catalog.Persistence.Migrations
 {
     [DbContext(typeof(DevSkillDbContext))]
-    [Migration("20231030223554_createdb")]
-    partial class createdb
+    [Migration("20240330175605_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,36 +56,36 @@ namespace DevSkill.Catalog.Persistence.Migrations
                         {
                             Id = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9403),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3458),
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9420),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3480),
                             Name = "Web Development"
                         },
                         new
                         {
                             Id = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9467),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3510),
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9468),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3511),
                             Name = "Data Science"
                         },
                         new
                         {
                             Id = new Guid("bf3f3002-7e53-441e-8b76-f6280be284aa"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9484),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3531),
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9484),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3532),
                             Name = "Mobile Development"
                         },
                         new
                         {
                             Id = new Guid("fe98f549-e790-4e9f-aa16-18c2292a2ee9"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9497),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3541),
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9498),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3542),
                             Name = "Backend Development"
                         });
                 });
@@ -144,12 +144,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("812941fc-d06d-4158-80a9-e3c3b13a7c0b"),
                             CategoryId = new Guid("fe98f549-e790-4e9f-aa16-18c2292a2ee9"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9521),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3563),
                             Description = "Description of Curso de C#",
                             Duration = 10,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/1581488_e3e1_2.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9522),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3564),
                             Name = "Curso de C#",
                             Price = 100
                         },
@@ -158,12 +158,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("b6aff6ab-a6a4-46ba-bd86-8031f21d7796"),
                             CategoryId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9545),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3578),
                             Description = "Description of Curso de Python",
                             Duration = 25,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9545),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3579),
                             Name = "Curso de Python",
                             Price = 200
                         },
@@ -172,12 +172,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("6ab7ba3c-330d-48a9-8c3f-21e72931f6d2"),
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9560),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3590),
                             Description = "Curso de HTML 5 COMPLETO e com Projetos Práticos para WEB",
                             Duration = 46,
                             ImageUrl = "https://img-b.udemycdn.com/course/240x135/2231672_d36d_4.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9561),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3591),
                             Name = "Curso de HTML 5 COMPLETO e com Projetos Práticos para WEB",
                             Price = 350
                         },
@@ -186,12 +186,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("7490207f-edff-4201-9e67-95ad48225358"),
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9576),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3606),
                             Description = "HTML e CSS Essencial -Front End Completo para Iniciantes",
                             Duration = 46,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/1755476_2755_5.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9577),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3607),
                             Name = "HTML e CSS Essencial -Front End Completo para Iniciantes",
                             Price = 110
                         },
@@ -200,12 +200,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("a20964c4-e972-46e7-9cab-99e325cdae0e"),
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9591),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3619),
                             Description = "Web Design: Construa Sites com PHP, HTML, CSS e JavaScript",
                             Duration = 120,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/1586752_2d9e_2.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9592),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3620),
                             Name = "Web Design: Construa Sites com PHP, HTML, CSS e JavaScript",
                             Price = 70
                         },
@@ -214,12 +214,12 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("ba24d51f-2946-4fa5-8006-a29af5b84b4d"),
                             CategoryId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9614),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3635),
                             Description = "Python for Data Science and Machine Learning Bootcamp",
                             Duration = 100,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/1586752_2d9e_2.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9614),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3635),
                             Name = "Python for Data Science and Machine Learning Bootcamp",
                             Price = 87
                         },
@@ -228,101 +228,15 @@ namespace DevSkill.Catalog.Persistence.Migrations
                             Id = new Guid("8816ca0b-73a1-4844-aa00-ad0234507d74"),
                             CategoryId = new Guid("bf3f3002-7e53-441e-8b76-f6280be284aa"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9630),
+                            CreatedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3646),
                             Description = "Flutter - Beginners Course",
                             Duration = 43,
                             ImageUrl = "https://img-c.udemycdn.com/course/240x135/1586752_2d9e_2.jpg",
                             LastModifiedBy = "System",
-                            LastModifiedDate = new DateTime(2023, 10, 30, 19, 35, 54, 732, DateTimeKind.Local).AddTicks(9630),
+                            LastModifiedDate = new DateTime(2024, 3, 30, 14, 56, 5, 772, DateTimeKind.Local).AddTicks(3647),
                             Name = "Flutter - Beginners Course",
                             Price = 120
                         });
-                });
-
-            modelBuilder.Entity("DevSkill.Catalog.Domain.Order.Entities.Order", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CourseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CourseName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OrderStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("DevSkill.Catalog.Domain.Order.Entities.OrderDetails", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ExpirationDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameOnCard")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("SecuityCode")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId")
-                        .IsUnique();
-
-                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("DevSkill.Catalog.Domain.Catalog.Entities.Course", b =>
@@ -334,42 +248,6 @@ namespace DevSkill.Catalog.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("DevSkill.Catalog.Domain.Order.Entities.OrderDetails", b =>
-                {
-                    b.HasOne("DevSkill.Catalog.Domain.Order.Entities.Order", null)
-                        .WithOne("OrderDetails")
-                        .HasForeignKey("DevSkill.Catalog.Domain.Order.Entities.OrderDetails", "OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.OwnsOne("DevSkill.Catalog.Domain.Order.ValueObjects.CreditCardNumber", "CreditCardNumber", b1 =>
-                        {
-                            b1.Property<Guid>("OrderDetailsId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)");
-
-                            b1.HasKey("OrderDetailsId");
-
-                            b1.ToTable("OrderDetails");
-
-                            b1.WithOwner()
-                                .HasForeignKey("OrderDetailsId");
-                        });
-
-                    b.Navigation("CreditCardNumber")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("DevSkill.Catalog.Domain.Order.Entities.Order", b =>
-                {
-                    b.Navigation("OrderDetails")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

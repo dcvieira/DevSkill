@@ -38,6 +38,7 @@ public class CheckoutCommandHandler : IRequestHandler<CheckoutCommand, CheckoutC
             var message =  new CheckoutRequestMessage
             {
                 Id = Guid.NewGuid(),
+                UserId = _loggedInUserService.UserId,
                 CreationDateTime = DateTime.Now,
                 CourseId = request.CourseId,
                 CoursePrice = course.Price,

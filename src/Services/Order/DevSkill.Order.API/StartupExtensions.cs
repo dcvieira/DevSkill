@@ -7,6 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using DevSkill.Order.Persistence;
 using DevSkill.Order.Application.Contracts;
 using DevSkill.Order.Api.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Text.Json;
+using DevSkill.Order.API.Messaging;
+using DevSkill.Order.API;
 //using Serilog;
 
 namespace DevSkill.Api;
@@ -18,9 +24,11 @@ public static class StartupExtensions
     {
         AddSwagger(builder.Services);
 
-        builder.Services.AddApplicationServices();
         builder.Services.AddPersistenceServices(builder.Configuration);
+        builder.Services.AddApplicationServices();
+
         builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+        builder.Services.AddSingleton<IAzServiceBusConsumer, AzServiceBusConsumer>();
 
         builder.Services.AddHttpContextAccessor();
 
@@ -30,6 +38,54 @@ public static class StartupExtensions
         {
             options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
         });
+
+        builder.Services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+              .AddJwtBearer(o =>
+              {
+                  o.RequireHttpsMetadata = false;
+                  o.SaveToken = false;
+                  o.TokenValidationParameters = new TokenValidationParameters
+                  {
+                      ValidateIssuerSigningKey = true,
+                      ValidateIssuer = true,
+                      ValidateAudience = true,
+                      ValidateLifetime = true,
+                      ClockSkew = TimeSpan.Zero,
+                      ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+                      ValidAudience = builder.Configuration["JwtSettings:Audience"],
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]))
+                  };
+
+                  o.Events = new JwtBearerEvents()
+                  {
+                      OnAuthenticationFailed = c =>
+                      {
+                          c.NoResult();
+                          c.Response.StatusCode = 500;
+                          c.Response.ContentType = "text/plain";
+                          return c.Response.WriteAsync(c.Exception.ToString());
+                      },
+                      OnChallenge = context =>
+                      {
+                          context.HandleResponse();
+                          context.Response.StatusCode = 401;
+                          context.Response.ContentType = "application/json";
+                          var result = JsonSerializer.Serialize("401 Not authorized");
+                          return context.Response.WriteAsync(result);
+                      },
+                      OnForbidden = context =>
+                      {
+                          context.Response.StatusCode = 403;
+                          context.Response.ContentType = "application/json";
+                          var result = JsonSerializer.Serialize("403 Not authorized");
+                          return context.Response.WriteAsync(result);
+                      }
+                  };
+              });
 
         return builder.Build();
 
@@ -58,6 +114,8 @@ public static class StartupExtensions
         app.UseAuthorization();
 
         app.MapControllers();
+
+        app.UseAzServiceBusConsumer();
 
         return app;
 
