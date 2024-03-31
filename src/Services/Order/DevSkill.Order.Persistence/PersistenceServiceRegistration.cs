@@ -19,6 +19,7 @@ namespace DevSkill.Catalog.Persistence
 
             services.AddScoped<IOrderRepository, OrderRepository>();
 
+
             return services;    
         }
     }
