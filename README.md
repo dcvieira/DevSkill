@@ -39,9 +39,19 @@ Se desejar executar o projeto em sua própria máquina, siga estas etapas:
 cd DevSkill.Api
 dotnet run
 
+cd DevSkill.Api
+dotnet run
+
 cd DevSkill.App
 dotnet run
 ```
+
+## Configuracao Azure Service Bus
+- Criar um recurso do Azure Service Bus
+- Criar um tópico com o nome checkoutmessage
+- Criar um subscription para o tópico com o nome devskillorder
+- Alterar a a string de conexão no projeto
+
 
 ## Estrutura do Projeto
 ![Project Structure](project-structure.JPG)
