@@ -30,7 +30,7 @@ Os usuários têm a capacidade de navegar pelo catálogo de cursos, selecionar u
 
 ## Link Youtube explicando sobre o projeto
 
-- .NET 7 SDK: [Link do youtube](https://youtu.be/R5T_Ktg9q6g)
+-  [Link do youtube](https://youtu.be/R5T_Ktg9q6g)
 
 ## Como Executar o Projeto
 
