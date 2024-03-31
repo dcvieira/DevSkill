@@ -28,6 +28,10 @@ Os usuários têm a capacidade de navegar pelo catálogo de cursos, selecionar u
 
 - .NET 7 SDK: [Link para Download](https://dotnet.microsoft.com/download/dotnet/7.0)
 
+## Link Youtube explicando sobre o projeto
+
+- .NET 7 SDK: [Link do youtube](https://youtu.be/R5T_Ktg9q6g)
+
 ## Como Executar o Projeto
 
 Se desejar executar o projeto em sua própria máquina, siga estas etapas:
