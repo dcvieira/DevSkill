@@ -15,8 +15,10 @@ else
         <thead>
             <tr>
                 <th>Course name</th>
-                <th>Order date</th>
                 <th>Price</th>
+                <th>Order date</th>
+                <th>Order Status</th>
+
             </tr>
         </thead>
         <tbody>
@@ -24,9 +26,20 @@ else
             {
                 <tr>
                     <td class="event-name">@order.CourseName </td>
-                    <td class="event-date">@order.OrderDate </td>
                     <td class="event-name">$@(order.Price) </td>
-
+                    <td class="event-date">@order.OrderDate </td>
+                    @if(order.OrderStatus == Services.Base.Order.OrderStatus._0) {
+                    <td class="event-date">Pending</td>
+                    }
+                    @if (order.OrderStatus == Services.Base.Order.OrderStatus._1)
+                    {
+                        <td style="color:green" class="event-date">Completed</td>
+                    }
+                    @if (order.OrderStatus == Services.Base.Order.OrderStatus._2)
+                    {
+                        <td style="color:red"  class="event-date">Cancelled</td>
+                    }
+                  
                 </tr>
             }
         </tbody>

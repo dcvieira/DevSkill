@@ -27,7 +27,7 @@ public class CheckoutMessageConsumer : IConsumer<CheckoutRequestMessage>
             CourseName = checkoutMessage.CourseName,
             UserId = checkoutMessage.UserId,
             OrderDate = DateTime.Now,
-            OrderStatus = Domain.Enums.OrderStatus.Completed,
+            OrderStatus = Domain.Enums.OrderStatus.Pending,
             OrderDetails = new Domain.Entities.OrderDetails
             {
                 Country = checkoutMessage.Country,
@@ -40,5 +40,18 @@ public class CheckoutMessageConsumer : IConsumer<CheckoutRequestMessage>
 
         };
         await orderRepository.AddAsync(Order);
+        
+        var paymentRequestMessage = new OrderPaymentRequestMessage
+        {
+            OrderId = Order.Id,
+            CardExpiration = checkoutMessage.ExpirationDate,
+            CardName = checkoutMessage.NameOnCard,
+            CardNumber = checkoutMessage.CreditCardNumber,
+            CreationDateTime = DateTime.Now,
+            Id = Guid.NewGuid(),
+            Total = checkoutMessage.CoursePrice
+        };
+
+        await context.Publish(paymentRequestMessage);
     }
 }

@@ -88,6 +88,7 @@ public static class StartupExtensions
         builder.Services.AddMassTransit(x =>
         {
             x.AddConsumer<CheckoutMessageConsumer>();
+            x.AddConsumer<OrderPaymentUpdateConsumer>();
 
             x.UsingRabbitMq((context, cfg) =>
             {
