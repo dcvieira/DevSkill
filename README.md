@@ -1,6 +1,6 @@
 # DevSkill - Projeto do Tech Challenge
 
-O DevSkill é um projeto desenvolvido como parte do Tech Challenge da Fase 1 do Curso de Pós-Graduação em Arquitetura de Sistemas .Net com Azure. O Tech Challenge é um projeto que abrange os conhecimentos adquiridos em todas as disciplinas desta fase.
+O DevSkill é um projeto desenvolvido como parte do Tech Challenge  do Curso de Pós-Graduação em Arquitetura de Sistemas .Net com Azure. O Tech Challenge é um projeto que abrange os conhecimentos adquiridos em todas as disciplinas desta fase.
 
 ## Sobre o Projeto
 
