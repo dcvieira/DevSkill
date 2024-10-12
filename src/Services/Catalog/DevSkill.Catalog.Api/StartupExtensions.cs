@@ -7,6 +7,7 @@ using DevSkill.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using DevSkill.Api.Middleware;
 using DevSkill.Identity;
+using MassTransit;
 //using Serilog;
 
 namespace DevSkill.Api;
@@ -31,6 +32,14 @@ public static class StartupExtensions
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+        });
+
+        builder.Services.AddMassTransit(x =>
+        {
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.ConfigureEndpoints(context);
+            });
         });
 
         return builder.Build();

@@ -11,9 +11,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json;
-using DevSkill.Order.API.Messaging;
-using DevSkill.Order.API;
-//using Serilog;
+using MassTransit;
+using DevSkill.Order.API.Consumers;
 
 namespace DevSkill.Api;
 
@@ -28,7 +27,6 @@ public static class StartupExtensions
         builder.Services.AddApplicationServices();
 
         builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
-        builder.Services.AddSingleton<IAzServiceBusConsumer, AzServiceBusConsumer>();
 
         builder.Services.AddHttpContextAccessor();
 
@@ -87,6 +85,17 @@ public static class StartupExtensions
                   };
               });
 
+        builder.Services.AddMassTransit(x =>
+        {
+            x.AddConsumer<CheckoutMessageConsumer>();
+            x.AddConsumer<OrderPaymentUpdateConsumer>();
+
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.ConfigureEndpoints(context);
+            });
+        });
+
         return builder.Build();
 
     }
@@ -115,7 +124,7 @@ public static class StartupExtensions
 
         app.MapControllers();
 
-        app.UseAzServiceBusConsumer();
+       // app.UseAzServiceBusConsumer();
 
         return app;
 

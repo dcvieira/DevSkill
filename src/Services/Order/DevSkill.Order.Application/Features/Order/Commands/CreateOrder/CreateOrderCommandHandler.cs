@@ -11,7 +11,6 @@ namespace DevSkill.Order.Application.Features.Order.Commands.CreateOrder
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IMessageBus _messageBus;
 
         public CreateOrderCommandHandler(IOrderRepository orderRepository)
         {

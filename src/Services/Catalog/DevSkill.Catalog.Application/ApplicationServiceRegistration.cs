@@ -9,7 +9,6 @@ namespace DevSkill.Catalog.Application;
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSingleton<IMessageBus, AzServiceBusMessageBus>();
 
         return services;
         }
