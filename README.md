@@ -30,7 +30,7 @@ Os usuários têm a capacidade de navegar pelo catálogo de cursos, selecionar u
 
 ## Link Youtube explicando sobre o projeto
 
--  [Link do youtube](https://youtu.be/R5T_Ktg9q6g)
+-  [Link do youtube](https://youtu.be/F6wsWK_MQKE)
 
 ## Como Executar o Projeto
 
